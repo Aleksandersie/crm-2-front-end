@@ -1,0 +1,25 @@
+$containerWidth: 1200px;
+$containerPadding: 40px;
+/////////
+$mediaStepOne: 1200px;
+$mediaStepTwo: 992px;
+$mediaStepThree: 768px;
+$mediaStepFour: 480px;
+//////
+$backgroundGradient: linear-gradient(252.2deg, #3A0540 18.1%, rgba(170, 33, 38, 0.56) 98.45%);
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  min-width: 100vw;
+  min-height: 100vh;
+  background: $backgroundGradient
+}
+.container{
+  width: $containerWidth;
+  margin: 0 auto;
+}
