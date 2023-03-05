@@ -5,7 +5,7 @@ import MainWindow from "./components/MainWindow/MainWindow";
 
 function App() {
   return (
-    <div className={style.container}>
+    <div className={style.fakeClass}>
       <MainWindow/>
     </div>
   );
