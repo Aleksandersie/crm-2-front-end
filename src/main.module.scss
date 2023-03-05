@@ -1,0 +1,36 @@
+
+$containerWidth: 1200px;
+$containerPadding: 40px;
+/////////
+$mediaStepOne: 1200px;
+$mediaStepTwo: 992px;
+$mediaStepThree: 768px;
+$mediaStepFour: 480px;
+//////
+$backgroundGradient: linear-gradient(252.2deg, #3A0540 18.1%, rgba(170, 33, 38, 0.56) 98.45%);
+///////////////////
+ @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+/////////
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+input{
+  outline:none;
+  border: none;
+}
+
+body{
+  min-width: 100vw;
+  min-height: 100vh;
+  background: $backgroundGradient;
+}
+.fakeClass{
+ color: aliceblue;
+}
+.container{
+  max-width: $containerWidth;
+  margin: 0 auto;
+  padding: 0px 15px;
+}
