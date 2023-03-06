@@ -8,13 +8,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  //transform: scale(1);
   opacity: 1;
   transition: 0.3s;
 }
 .modalNonActive{
-  opacity: 0;
-  //transform: scale(0);
+  display: none;
 }
 .modalContent{
   background-color: #EAECE9;
