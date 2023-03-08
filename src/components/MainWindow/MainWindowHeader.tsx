@@ -9,7 +9,7 @@ const MainWindowHeader = () => {
             <div className={styles.mainWindowHeader}>
                 <div className={styles.searchWrapper}>
                     <MainWindowHeaderSearchInput/>
-                     <MainWindowHeaderCreateOrderButton/>1
+                     <MainWindowHeaderCreateOrderButton/>
                 </div>
             </div>
         </div>

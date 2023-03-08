@@ -1,13 +1,55 @@
+@import "../../main.module";
+*{
+  font-family: "Inter", sans-serif;
+}
 .loginWindowBody{
   width: 400px;
   height: 300px;
   background-color:white;
   border-radius: 20px;
+  color: black;
 }
+.inputWrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap:20px;
+  height: 300px;
+  justify-content: center;
+}
+
 .input{
-  width: 300px;
-  height: 50px;
+  width: 250px;
+  height: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 22px;
   background: #FFFFFF;
   box-shadow: inset 0px 0px 3px 2px rgba(0, 0, 0, 0.39);
   border-radius: 20px;
+}
+.inputGroup{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.loginBtn{
+  width: 150px;
+  height: 35px;
+  border-radius: 20px;
+  line-height: 35px;
+  text-align: center;
+  background-color: $yellowBtn
+}
+.loginWrapper{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: center;
+  align-items: center;
+}
+
+.loginBlockText{
+  font-size: 10px;
 }
