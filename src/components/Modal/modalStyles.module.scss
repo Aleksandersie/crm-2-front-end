@@ -1,0 +1,19 @@
+.modalActive{
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.6);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  transition: 0.3s;
+}
+.modalNonActive{
+  display: none;
+}
+.modalContent{
+  border-radius: 20px;
+}
