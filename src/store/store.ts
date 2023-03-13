@@ -8,8 +8,6 @@ import selectedOrderCategoryReducer from "./slice/selectedOrderCategorySlice."
 
 const rootReducer = combineReducers(
     {
-        counterReducer,
-        priceReducer,
         orderCategoryReducer,
         selectedOrderCategoryReducer,
         [priceApi.reducerPath]: priceApi.reducer

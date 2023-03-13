@@ -1,0 +1,35 @@
+@import "../../main.module";
+.creationOrderWindowBody{
+  width: 900px;
+  height: 700px;
+  background-color: white;
+  border-radius: 20px;
+}
+.header{
+  height: 80px;
+  background:$windowHeaderBackground;
+  border-bottom: 1px solid #6D6D6D;
+  border-radius: 20px 20px 0px 0px;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+
+.addBtn{
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  width: 250px;
+  height: 50px;
+  border-radius: 20px;
+  cursor: pointer;
+  background-color: $yellowBtn;
+  color:$textColor;
+  border: 1px solid $btnBorder;
+  transition: 0.3s;
+  text-align: center;
+  line-height: 50px;
+  &:hover{
+    background-color:$yellowBtnHover;
+  }
+
+}

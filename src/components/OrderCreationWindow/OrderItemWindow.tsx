@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from "./orderWindowStyles.module.scss"
-const OrderCreationWindow = () => {
+const OrderItemWindow = () => {
     return (
         <div className={styles.orderWindowBody}>
             
@@ -8,4 +8,4 @@ const OrderCreationWindow = () => {
     );
 };
 
-export default OrderCreationWindow;
+export default OrderItemWindow;
