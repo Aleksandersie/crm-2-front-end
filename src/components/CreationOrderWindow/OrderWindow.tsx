@@ -7,6 +7,9 @@ const OrderWindow = () => {
             <div className={styles.header}>
                 <AddCustomerButton/>
             </div>
+            <div className={styles.orderItemsBorder}>
+
+            </div>
 
         </div>
     );
