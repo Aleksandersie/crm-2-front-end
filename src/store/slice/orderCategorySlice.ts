@@ -1,8 +1,9 @@
 import {createSlice} from "@reduxjs/toolkit";
 
-enum categoryName {
+export enum categoryName {
    vinyl = "Интерьерная печать",
-   vinylPC =  "Печать с резкой"
+   vinylPC =  "Печать с резкой",
+   vinylUV = "УФ печать"
 }
 
 export interface ICategoryItem{
@@ -18,6 +19,10 @@ const categoryList:ICategoryItem[] = [
     {
         id:2,
         name:categoryName.vinylPC
+    },
+    {
+        id:3,
+        name:categoryName.vinylUV
     }
 ]
 
@@ -29,7 +34,7 @@ export const orderCategorySlice = createSlice( {
     reducers:{
         getCategory:()=>{
             return initialState
-        }
+        },
     }
 })
 

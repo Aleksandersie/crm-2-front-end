@@ -3,6 +3,7 @@ import counterReducer from "./slice/counter"
 import priceReducer from  "./slice/priceSlice"
 import {priceApi} from "../RTK/priceApi";
 import orderCategoryReducer from "./slice/orderCategorySlice"
+import selectedOrderCategoryReducer from "./slice/selectedOrderCategorySlice."
 
 
 const rootReducer = combineReducers(
@@ -10,6 +11,7 @@ const rootReducer = combineReducers(
         counterReducer,
         priceReducer,
         orderCategoryReducer,
+        selectedOrderCategoryReducer,
         [priceApi.reducerPath]: priceApi.reducer
     }
 )

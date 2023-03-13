@@ -8,6 +8,7 @@ import {clear, counterSlice, custom, plus} from '../../store/slice/counter';
 import {useAppDispatch, useAppSelector} from "../../store/reduxHooks/reduxHooks";
 import {useGetPriceQuery} from '../../RTK/priceApi';
 import {IPrice} from "../../store/slice/priceSlice";
+import {selectedOrderCategorySlice} from "../../store/slice/selectedOrderCategorySlice.";
 
 
 
@@ -17,17 +18,30 @@ const MainWindow = () => {
 // const dispatch:AppDispatch = useDispatch()
 //     const count = useAppSelector(state => state.counterReducer.counter)
 //     const price = useAppSelector(state => state.priceReducer.vinyl)
-//     const dispatch = useAppDispatch()
+       const dispatch = useAppDispatch()
 //     const fn = counterSlice.actions
     const category = useAppSelector(state => state.orderCategoryReducer)
+    const {name} = useAppSelector(state => state.selectedOrderCategoryReducer)
+    const get = selectedOrderCategorySlice.actions.setSelectedOrderCategory("asd")
 
     const {data} = useGetPriceQuery("")
-    console.log(category)
+    console.log(name)
+    function action(el:string){
+        console.log(el)
+       dispatch(  selectedOrderCategorySlice.actions.setSelectedOrderCategory(el))
+    }
     return (
         <div className={styles.mainWindowContainer}>
-            <div className={styles.mainWindow}   >
+            <div className={styles.mainWindow}>
                 <MainWindowHeader/>
-                {category.map(el=>el.name)}
+                {category.map(el=>(
+                    <button onClick={()=>action(el.name)}>
+                        {el.name}
+                    </button>
+                    )
+                )}
+                {/*<button onClick={action}>action</button>*/}
+                {name}
                 {/*{count}*/}
                 {/*{price}*/}
                 {/*<button onClick={()=>dispatch(plus())}>+</button>*/}
