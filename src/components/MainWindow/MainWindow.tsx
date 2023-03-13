@@ -7,6 +7,7 @@ import {AppDispatch, RootState} from "../../store/store";
 import {clear, counterSlice, custom, plus} from '../../store/slice/counter';
 import {useAppDispatch, useAppSelector} from "../../store/reduxHooks/reduxHooks";
 import {useGetPriceQuery} from '../../RTK/priceApi';
+import {IPrice} from "../../store/slice/priceSlice";
 
 
 
@@ -18,13 +19,15 @@ const MainWindow = () => {
 //     const price = useAppSelector(state => state.priceReducer.vinyl)
 //     const dispatch = useAppDispatch()
 //     const fn = counterSlice.actions
+    const category = useAppSelector(state => state.orderCategoryReducer)
 
-    const {data} = useGetPriceQuery('')
-    console.log(data)
+    const {data} = useGetPriceQuery("")
+    console.log(category)
     return (
         <div className={styles.mainWindowContainer}>
             <div className={styles.mainWindow}   >
                 <MainWindowHeader/>
+                {category.map(el=>el.name)}
                 {/*{count}*/}
                 {/*{price}*/}
                 {/*<button onClick={()=>dispatch(plus())}>+</button>*/}
@@ -35,5 +38,4 @@ const MainWindow = () => {
 
     );
 };
-
 export default MainWindow;
