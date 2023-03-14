@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from "./orderItemStyles.module.scss"
+import DropdownSelector from "../DropdownSelector/DropdownSelector";
 const OrderItemWindow = () => {
     return (
         <div className={styles.orderWindowBody}>
@@ -11,6 +12,10 @@ const OrderItemWindow = () => {
                 <div className={styles.blockWrapper}>
                     <p>Введите размеры</p>
                     <div className={styles.name}>Введите размеры</div>
+                </div>
+                <div className={styles.blockWrapper}>
+                    <p>Введите размеры</p>
+                    <DropdownSelector />
                 </div>
             </div>
         </div>
