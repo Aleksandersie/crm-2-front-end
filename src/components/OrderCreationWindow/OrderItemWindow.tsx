@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from "./orderWindowStyles.module.scss"
+import styles from "./orderItemStyles.module.scss"
 const OrderItemWindow = () => {
     return (
         <div className={styles.orderWindowBody}>
