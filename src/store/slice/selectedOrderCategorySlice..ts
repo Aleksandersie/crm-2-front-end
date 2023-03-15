@@ -2,7 +2,7 @@ import {categoryName} from "./orderCategorySlice";
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 
 export interface ISelectedOrderCategory{
-    name: string|categoryName
+    name: string|any
 }
 
 const initialState:ISelectedOrderCategory={
@@ -14,11 +14,10 @@ export const selectedOrderCategorySlice = createSlice({
     name:"selectedOrderCategorySlice",
     initialState,
     reducers:{
-        // @ts-ignore
         getSelectedOrderCategory:(state)=>{
             return state.name
         },
-        setSelectedOrderCategory:(state,action:PayloadAction<categoryName>)=>{
+        setSelectedOrderCategory:(state,action:PayloadAction<string>)=>{
             state.name = action.payload
         }
 
