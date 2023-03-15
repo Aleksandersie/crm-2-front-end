@@ -1,21 +1,23 @@
 import React from 'react';
 import styles from "./orderItemStyles.module.scss"
-import Modal from "../Modal/Modal";
-import Selector from "../Selector/Selector";
+import DropdownSelector from "../DropdownSelector/DropdownSelector";
+import {useAppSelector} from "../../store/reduxHooks/reduxHooks";
 const OrderItemWindow = () => {
-    const [categoryActive, setCategoryActive] = React.useState<boolean>(false)
-
+    const {name} = useAppSelector(state => state.selectedOrderCategoryReducer)
     return (
         <div className={styles.orderWindowBody}>
             <div className={styles.wrapper}>
                 <div className={styles.blockWrapper}>
                     <p>Категория</p>
-                    <div className={styles.name} onClick={()=>setCategoryActive(true)}>Выберите категорию</div>
-                    <Modal active={categoryActive} setActive={setCategoryActive} children={123}/>
+                    <div className={styles.name}>Выберите категорию</div>
                 </div>
                 <div className={styles.blockWrapper}>
                     <p>Введите размеры</p>
-                   <Selector/>
+                    <div className={styles.name}>Введите размеры</div>
+                </div>
+                <div className={styles.blockWrapper}>
+                    <p>Введите размеры</p>
+                    <DropdownSelector emptyTitle={"Выберите категорию"} selectedTitle={name} />
                 </div>
             </div>
         </div>

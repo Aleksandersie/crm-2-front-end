@@ -6,7 +6,7 @@ export interface ISelectedOrderCategory{
 }
 
 const initialState:ISelectedOrderCategory={
-    name: "test"
+    name: ""
 }
 
 
