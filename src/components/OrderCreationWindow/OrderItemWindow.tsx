@@ -4,6 +4,8 @@ import {useAppDispatch, useAppSelector} from "../../store/reduxHooks/reduxHooks"
 import CategoryDropdownSelector from "../CategoryDropdownSelector/CategoryDropdownSelector";
 import {materialSlice} from "../../store/slice/materiallSlice";
 import {interiorPrintMaterialList} from "../../store/slice/materialLists/interiorPrintMaterialList";
+import {digitalPrintMaterials} from "../../store/slice/materialLists/digitalPrintMaterials";
+import MaterialDropdownSelector from "../MaterialDropdownSelector/MaterialDropdownSelector";
 
 const OrderItemWindow = () => {
     const {name} = useAppSelector(state => state.selectedOrderCategoryReducer)
@@ -15,6 +17,10 @@ const OrderItemWindow = () => {
 
     useEffect(()=>{
         dispatch(materialSlice.actions.setMaterialList(interiorPrintMaterialList))
+        console.log("list",getList)
+    },[])
+    useEffect(()=>{
+        dispatch(materialSlice.actions.setMaterialList(digitalPrintMaterials))
         console.log("list",getList)
     },[])
 
@@ -31,7 +37,7 @@ const OrderItemWindow = () => {
                 </div>
                 <div className={styles.blockWrapper}>
                     <p>Введите размеры</p>
-
+                    <MaterialDropdownSelector/>
                 </div>
             </div>
         </div>

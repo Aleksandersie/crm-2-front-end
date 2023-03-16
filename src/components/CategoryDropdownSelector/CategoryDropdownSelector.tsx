@@ -11,7 +11,6 @@ const CategoryDropdownSelector:React.FC = () => {
     const [activeDropdown,setActiveDropdown] = useState<boolean>(false)
 
     function categoryHandler(category:ICategoryItem){
-        console.log(category.name)
         setActiveDropdown(false)
         dispatch(selectedOrderCategorySlice.actions.setSelectedOrderCategory(category.name))
     }

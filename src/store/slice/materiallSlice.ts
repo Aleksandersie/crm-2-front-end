@@ -1,12 +1,12 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 
-export interface IMaterialList{
+export interface IMaterialItem{
     id:number,
     name:string
 }
 
 // @ts-ignore
-const initialState=[]
+const initialState:IMaterialList[]=[]
 
 
 export const materialSlice = createSlice({
@@ -14,8 +14,10 @@ export const materialSlice = createSlice({
     // @ts-ignore
     initialState,
     reducers:{
-        setMaterialList:(state, action:PayloadAction<IMaterialList[]>)=>{
-           state = action.payload
+        setMaterialList:(state, action:PayloadAction<IMaterialItem[]>)=>{
+           // @ts-ignore
+            //state.push(action.payload)
+            return [...action.payload]
         },
         getMaterialList:(state)=>{
             return state
