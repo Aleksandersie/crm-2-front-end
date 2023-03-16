@@ -4,7 +4,6 @@ import MainWindowHeader from "./MainWindowHeader";
 import Modal from "../Modal/Modal";
 import {useDispatch, useSelector} from "react-redux";
 import {AppDispatch, RootState} from "../../store/store";
-import {clear, counterSlice, custom, plus} from '../../store/slice/counter';
 import {useAppDispatch, useAppSelector} from "../../store/reduxHooks/reduxHooks";
 import {useGetPriceQuery} from '../../RTK/priceApi';
 import {IPrice} from "../../store/slice/priceSlice";
