@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from "./orderItemStyles.module.scss"
-import DropdownSelector from "../DropdownSelector/DropdownSelector";
 import {useAppSelector} from "../../store/reduxHooks/reduxHooks";
 import CategoryDropdownSelector from "../CategoryDropdownSelector/CategoryDropdownSelector";
 const OrderItemWindow = () => {
@@ -19,7 +18,7 @@ const OrderItemWindow = () => {
                 </div>
                 <div className={styles.blockWrapper}>
                     <p>Введите размеры</p>
-                    <DropdownSelector emptyTitle={"Выберите категорию"} selectedTitle={name} >{category}</DropdownSelector>
+
                 </div>
             </div>
         </div>

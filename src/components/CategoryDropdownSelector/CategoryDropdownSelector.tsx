@@ -1,16 +1,32 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from "./CategoryDropdownSelector.module.scss"
-import {useAppSelector} from "../../store/reduxHooks/reduxHooks";
+import {useAppDispatch, useAppSelector} from "../../store/reduxHooks/reduxHooks";
+import {ICategoryItem} from "../../store/slice/orderCategorySlice";
+import {selectedOrderCategorySlice} from "../../store/slice/selectedOrderCategorySlice.";
 
 const CategoryDropdownSelector:React.FC = () => {
+    
+    const dispatch = useAppDispatch()
+
+    const [activeDropdown,setActiveDropdown] = useState<boolean>(false)
+
+    function categoryHandler(category:ICategoryItem){
+        console.log(category.name)
+        setActiveDropdown(false)
+        dispatch(selectedOrderCategorySlice.actions.setSelectedOrderCategory(category.name))
+    }
+
     const {name} = useAppSelector(state => state.selectedOrderCategoryReducer)
     const categories = useAppSelector(state => state.orderCategoryReducer)
+
     return (
         <div className={styles.selector}>
-            <div className={styles.selectorHeader}>{name||"Выберите категорию"}</div>
-            <div className={styles.selectorBody}>
+            <div className={styles.selectorHeader}
+            onClick={()=>setActiveDropdown(true)}
+            >{name||"Выберите категорию"}</div>
+            <div className={activeDropdown? styles.selectorBody:styles.selectorBodyInactive}>
                 {categories.map(category=>(
-                   <div>{category.name}</div>
+                   <div className={styles.listItem} onClick={()=>categoryHandler(category)}>{category.name}</div>
                 ))}
             </div>
         </div>
