@@ -1,15 +1,16 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
-import priceReducer from  "./slice/priceSlice"
 import {priceApi} from "../RTK/priceApi";
 import orderCategoryReducer from "./slice/orderCategorySlice"
 import selectedOrderCategoryReducer from "./slice/selectedOrderCategorySlice."
 import materialSliceReducer from "./slice/materiallSlice"
+import selectedMaterialReducer from "./slice/selectedMaterialSlice"
 
 
 const rootReducer = combineReducers(
     {
         orderCategoryReducer,
         selectedOrderCategoryReducer,
+        selectedMaterialReducer,
         materialSliceReducer,
         [priceApi.reducerPath]: priceApi.reducer
     }

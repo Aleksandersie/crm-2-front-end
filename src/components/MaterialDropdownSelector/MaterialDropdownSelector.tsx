@@ -6,18 +6,19 @@ import {selectedOrderCategorySlice} from "../../store/slice/selectedOrderCategor
 import {IMaterialItem, materialSlice} from "../../store/slice/materiallSlice";
 import {interiorPrintMaterialList} from "../../store/slice/materialLists/interiorPrintMaterialList";
 import {digitalPrintMaterials} from "../../store/slice/materialLists/digitalPrintMaterials";
+import {selectedMaterialSlice} from "../../store/slice/selectedMaterialSlice";
 const MaterialDropdownSelector = () => {
 
     const dispatch = useAppDispatch()
 
     const [activeDropdown,setActiveDropdown] = useState<boolean>(false)
 
-    function categoryHandler(category:IMaterialItem){
+    function materialHandler(material:IMaterialItem){
         setActiveDropdown(false)
-        //dispatch(selectedOrderCategorySlice.actions.setSelectedOrderCategory(category.name))
+        dispatch(selectedMaterialSlice.actions.setSelectedMaterial(material.name))
     }
 
-    const {name} = useAppSelector(state => state.selectedOrderCategoryReducer)
+    const {name} = useAppSelector(state => state.selectedMaterialReducer)
     const materials = useAppSelector(state => state.materialSliceReducer)
 
     function inter(){
@@ -36,7 +37,7 @@ const MaterialDropdownSelector = () => {
             <button onClick={digital}>digital</button>
             <div className={activeDropdown? styles.selectorBody:styles.selectorBodyInactive}>
                 {materials.map(material=>(
-                    <div className={styles.listItem} onClick={()=>categoryHandler(material)}>{material.name}</div>
+                    <div className={styles.listItem} onClick={()=>materialHandler(material)}>{material.name}</div>
                 ))}
             </div>
         </div>
