@@ -7,6 +7,7 @@ import { materialSlice } from "../../store/slice/materiallSlice";
 import { digitalPrintMaterials } from "../../store/slice/materialLists/digitalPrintMaterials";
 import { interiorPrintMaterialList } from "../../store/slice/materialLists/interiorPrintMaterialList";
 import { selectedMaterialSlice } from "../../store/slice/selectedMaterialSlice";
+import { log } from "util";
 
 const CategoryDropdownSelector: React.FC = () => {
     const dispatch = useAppDispatch();
@@ -20,20 +21,23 @@ const CategoryDropdownSelector: React.FC = () => {
 
     const { name } = useAppSelector((state) => state.selectedOrderCategoryReducer);
     const categories = useAppSelector((state) => state.orderCategoryReducer);
-
+    ////////////////////////
+    ///// Values for interior print
+    const intPrintConstArray = ["Печать с резкой", "УФ печать", "Интерьерная печать"];
+    const digitalPrintArray = ["Цифровая печать"];
     useEffect(() => {
         console.log("category is", name);
-        if (name === "Цифровая печать") {
-            console.log("digital");
+        if (digitalPrintArray.includes(name)) {
+            console.log("Values from digitalPrintArray");
             dispatch(selectedMaterialSlice.actions.setSelectedMaterial(""));
             dispatch(materialSlice.actions.setMaterialList(digitalPrintMaterials));
-        }
-        if (name === "Печать с резкой") {
-            console.log("intPrint");
+        } else if (intPrintConstArray.includes(name)) {
+            console.log("Values from intPrintArray");
             dispatch(selectedMaterialSlice.actions.setSelectedMaterial(""));
             dispatch(materialSlice.actions.setMaterialList(interiorPrintMaterialList));
         }
     }, [categoryHandler]);
+    ///////////////////////
 
     return (
         <div className={styles.selector}>
