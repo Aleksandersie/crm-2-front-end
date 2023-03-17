@@ -3,7 +3,8 @@ import {createSlice} from "@reduxjs/toolkit";
 export enum categoryName {
    vinyl = "Интерьерная печать",
    vinylPC =  "Печать с резкой",
-   vinylUV = "УФ печать"
+   vinylUV = "УФ печать",
+   digitalPrint = "Цифровая печать"
 }
 
 export interface ICategoryItem{
@@ -23,6 +24,10 @@ const categoryList:ICategoryItem[] = [
     {
         id:3,
         name:categoryName.vinylUV
+    },
+    {
+        id:4,
+        name:categoryName.digitalPrint
     }
 ]
 

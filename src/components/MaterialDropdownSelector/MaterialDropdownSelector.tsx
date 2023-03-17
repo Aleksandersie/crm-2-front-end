@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from "./materialDropdownSelector.module.scss"
 import {useAppDispatch, useAppSelector} from "../../store/reduxHooks/reduxHooks";
 import {ICategoryItem} from "../../store/slice/orderCategorySlice";
@@ -7,7 +7,7 @@ import {IMaterialItem, materialSlice} from "../../store/slice/materiallSlice";
 import {interiorPrintMaterialList} from "../../store/slice/materialLists/interiorPrintMaterialList";
 import {digitalPrintMaterials} from "../../store/slice/materialLists/digitalPrintMaterials";
 import {selectedMaterialSlice} from "../../store/slice/selectedMaterialSlice";
-const MaterialDropdownSelector = () => {
+const MaterialDropdownSelector:React.FC = () => {
 
     const dispatch = useAppDispatch()
 
@@ -28,6 +28,7 @@ const MaterialDropdownSelector = () => {
     function digital(){
         dispatch(materialSlice.actions.setMaterialList(digitalPrintMaterials))
     }
+
     return (
         <div className={styles.selector}>
             <div className={styles.selectorHeader}

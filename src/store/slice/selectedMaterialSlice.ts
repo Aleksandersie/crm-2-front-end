@@ -5,7 +5,7 @@ interface ISelectedMaterial{
 }
 
 const initialState:ISelectedMaterial={
-    name: "fss"
+    name: ""
 }
 
 

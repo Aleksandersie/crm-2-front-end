@@ -24,7 +24,7 @@ const MainWindow = () => {
     const get = selectedOrderCategorySlice.actions.setSelectedOrderCategory("asd")
 
     const {data} = useGetPriceQuery("")
-    console.log(name)
+
     function action(el:string){
         console.log(el)
        dispatch(  selectedOrderCategorySlice.actions.setSelectedOrderCategory(el))

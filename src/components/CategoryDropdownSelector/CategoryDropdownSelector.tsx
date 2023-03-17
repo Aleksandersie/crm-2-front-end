@@ -1,8 +1,13 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from "./CategoryDropdownSelector.module.scss"
 import {useAppDispatch, useAppSelector} from "../../store/reduxHooks/reduxHooks";
 import {ICategoryItem} from "../../store/slice/orderCategorySlice";
 import {selectedOrderCategorySlice} from "../../store/slice/selectedOrderCategorySlice.";
+import {materialSlice} from "../../store/slice/materiallSlice";
+import {digitalPrintMaterials} from "../../store/slice/materialLists/digitalPrintMaterials";
+import {interiorPrintMaterialList} from "../../store/slice/materialLists/interiorPrintMaterialList";
+import {selectedMaterialSlice} from "../../store/slice/selectedMaterialSlice";
+
 
 const CategoryDropdownSelector:React.FC = () => {
     
@@ -17,6 +22,20 @@ const CategoryDropdownSelector:React.FC = () => {
 
     const {name} = useAppSelector(state => state.selectedOrderCategoryReducer)
     const categories = useAppSelector(state => state.orderCategoryReducer)
+
+    useEffect(() => {
+        console.log("category is",name)
+        if(name === "Цифровая печать" ) {
+            console.log("digital")
+            dispatch(selectedMaterialSlice.actions.setSelectedMaterial(""))
+            dispatch(materialSlice.actions.setMaterialList(digitalPrintMaterials))
+        }
+        if(name === "Печать с резкой" ) {
+            console.log("intPrint")
+            dispatch(selectedMaterialSlice.actions.setSelectedMaterial(""))
+            dispatch(materialSlice.actions.setMaterialList(interiorPrintMaterialList))
+        }
+    },[categoryHandler]);
 
     return (
         <div className={styles.selector}>
