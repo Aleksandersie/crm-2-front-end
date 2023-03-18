@@ -1,19 +1,19 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-interface IPrice{
-    vinyl:number,
-    vinylPC:number,
-    vinylUV:number,
+interface IPrice {
+    vinyl: number;
+    vinylPC: number;
+    vinylUV: number;
 }
 
-export const priceApi= createApi({
-    reducerPath: 'priceApi',
-    baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:5000/api' }),
+export const priceApi = createApi({
+    reducerPath: "priceApi",
+    baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:5000/api" }),
     endpoints: (builder) => ({
-        getPrice: builder.query<IPrice[],string>({
-            query: () => '/getPriceList',
+        getPrice: builder.query<IPrice, string>({
+            query: () => "/getPriceList",
         }),
     }),
-})
+});
 
-export const {useGetPriceQuery} = priceApi
+export const { useGetPriceQuery } = priceApi;

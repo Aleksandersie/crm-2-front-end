@@ -41,14 +41,12 @@ const CategoryDropdownSelector: React.FC = () => {
 
     return (
         <div className={styles.selector}>
-            <div className={styles.selectorHeader} onClick={() => setActiveDropdown(true)}>
-                {name || "Выберите категорию"}
-            </div>
-            <div className={activeDropdown ? styles.selectorBody : styles.selectorBodyInactive}>
-                {categories.map((category) => (
-                    <div className={styles.listItem} onClick={() => categoryHandler(category)}>
-                        {category.name}
-                    </div>
+            <div className={styles.selectorHeader}
+            onClick={()=>setActiveDropdown(true)}
+            >{name||"Выберите категорию"}</div>
+            <div className={activeDropdown? styles.selectorBody:styles.selectorBodyInactive}>
+                {categories.map(category=>(
+                   <div key={category.id} className={styles.listItem} onClick={()=>categoryHandler(category)}>{category.name}</div>
                 ))}
             </div>
         </div>
