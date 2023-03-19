@@ -1,10 +1,10 @@
-export const interiorPrintMaterialList =[
+export const interiorPrintMaterialList = [
     {
-        id:1,
-        name:"OraJet 3640M"
+        id: 1,
+        name: "OraJet 3640M",
     },
     {
-        id:1,
-        name:"OraJet 3640G"
+        id: 2,
+        name: "OraJet 3640G",
     },
-]
+];

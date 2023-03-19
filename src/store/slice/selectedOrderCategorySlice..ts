@@ -1,28 +1,25 @@
-import {categoryName} from "./orderCategorySlice";
-import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import { categoryName } from "./orderCategorySlice";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-export interface ISelectedOrderCategory{
-    name: string|any
+export interface ISelectedOrderCategory {
+    name: string | any;
 }
 
-const initialState:ISelectedOrderCategory={
-    name: ""
-}
-
+const initialState: ISelectedOrderCategory = {
+    name: "",
+};
 
 export const selectedOrderCategorySlice = createSlice({
-    name:"selectedOrderCategorySlice",
+    name: "selectedOrderCategorySlice",
     initialState,
-    reducers:{
-        getSelectedOrderCategory:(state)=>{
-            return state.name
+    reducers: {
+        getSelectedOrderCategory: (state) => {
+            return state.name;
         },
-        setSelectedOrderCategory:(state,action:PayloadAction<string>)=>{
-            state.name = action.payload
-        }
+        setSelectedOrderCategory: (state, action: PayloadAction<string>) => {
+            state.name = action.payload;
+        },
+    },
+});
 
-    }
-
-})
-
-export default selectedOrderCategorySlice.reducer
+export default selectedOrderCategorySlice.reducer;

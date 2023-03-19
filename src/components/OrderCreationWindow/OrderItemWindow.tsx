@@ -5,10 +5,10 @@ import CategoryDropdownSelector from "../CategoryDropdownSelector/CategoryDropdo
 
 import MaterialDropdownSelector from "../MaterialDropdownSelector/MaterialDropdownSelector";
 import { useGetPriceQuery } from "../../RTK/priceApi";
+import { usePriceSelector } from "../usePriceSelector/usePriceSelector";
 
 const OrderItemWindow = () => {
-    const price = useGetPriceQuery("");
-    console.log(price.data?.vinyl);
+    const price = usePriceSelector();
     return (
         <div className={styles.orderWindowBody}>
             <div className={styles.wrapper}>
@@ -26,7 +26,7 @@ const OrderItemWindow = () => {
                 </div>
                 <div className={styles.blockWrapper}>
                     <p>Стоимость м2</p>
-                    <div className={styles.name}>{price.data?.vinyl}</div>
+                    <div className={styles.name}>{price}</div>
                 </div>
             </div>
         </div>
