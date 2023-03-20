@@ -22,14 +22,15 @@ const OrderItemWindow = () => {
     console.log("res", res);
 
     function createOrderItem() {
-        addOrderItem(
+        const result = addOrderItem(
             selectedCategory,
             selectedMaterial,
-            widthRef.current?.value,
-            heightRef.current?.value,
-            piecesRef.current?.value,
+            Number(widthRef.current?.value),
+            Number(heightRef.current?.value),
+            Number(piecesRef.current?.value),
             price
         );
+        console.log(result);
     }
     return (
         <div className={styles.orderWindowBody}>

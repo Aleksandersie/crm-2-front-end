@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-interface IPrice {
+export interface IPrice {
     vinyl: number;
     vinylPC: number;
     vinylUV: number;

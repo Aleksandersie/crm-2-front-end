@@ -43,7 +43,6 @@
       "prettier/prettier": ["warn",{
         "tabWidth": 4,
         "printWidth": 100
-
       }]
 
     }
