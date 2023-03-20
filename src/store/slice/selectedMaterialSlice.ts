@@ -1,27 +1,24 @@
-import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-interface ISelectedMaterial{
-    name:string|any,
+interface ISelectedMaterial {
+    name: string | any;
 }
 
-const initialState:ISelectedMaterial={
-    name: ""
-}
-
+const initialState: ISelectedMaterial = {
+    name: "",
+};
 
 export const selectedMaterialSlice = createSlice({
-    name:"selectedMaterialSlice",
+    name: "selectedMaterialSlice",
     initialState,
-    reducers:{
-        getSelectedMaterial:(state)=>{
-            return state.name
+    reducers: {
+        getSelectedMaterial: (state) => {
+            return state.name;
         },
-        setSelectedMaterial:(state, action:PayloadAction<string>)=>{
-            state.name = action.payload
-        }
+        setSelectedMaterial: (state, action: PayloadAction<string>) => {
+            state.name = action.payload;
+        },
+    },
+});
 
-    }
-
-})
-
-export default selectedMaterialSlice.reducer
+export default selectedMaterialSlice.reducer;

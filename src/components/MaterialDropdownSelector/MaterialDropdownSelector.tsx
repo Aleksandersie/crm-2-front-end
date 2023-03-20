@@ -7,18 +7,20 @@ import { IMaterialItem, materialSlice } from "../../store/slice/materiallSlice";
 import { interiorPrintMaterialList } from "../../store/slice/materialLists/interiorPrintMaterialList";
 import { digitalPrintMaterials } from "../../store/slice/materialLists/digitalPrintMaterials";
 import { selectedMaterialSlice } from "../../store/slice/selectedMaterialSlice";
+import { log } from "util";
 const MaterialDropdownSelector: React.FC = () => {
     const dispatch = useAppDispatch();
 
     const [activeDropdown, setActiveDropdown] = useState<boolean>(false);
 
-    function materialHandler(material: IMaterialItem) {
-        setActiveDropdown(false);
-        dispatch(selectedMaterialSlice.actions.setSelectedMaterial(material.name));
-    }
-
     const { name } = useAppSelector((state) => state.selectedMaterialReducer);
     const materials = useAppSelector((state) => state.materialSliceReducer);
+
+    function materialHandler(material: IMaterialItem) {
+        console.log("materialSelected", material.name);
+        dispatch(selectedMaterialSlice.actions.setSelectedMaterial(material.name));
+        setActiveDropdown(false);
+    }
 
     function inter() {
         dispatch(materialSlice.actions.setMaterialList(interiorPrintMaterialList));

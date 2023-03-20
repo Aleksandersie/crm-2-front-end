@@ -8,22 +8,26 @@ import { useGetPriceQuery } from "../../RTK/priceApi";
 import { usePriceSelector } from "../usePriceSelector/usePriceSelector";
 import { addOrderItem } from "../calcCore/calcCore";
 import { useAppSelector } from "../../store/reduxHooks/reduxHooks";
+import { useCategorySelector } from "../useCategorySelector/useCategorySelector";
 
 const OrderItemWindow = () => {
     const price = usePriceSelector();
     const selectedCategory = useAppSelector((state) => state.selectedOrderCategoryReducer.name);
     const selectedMaterial = useAppSelector((state) => state.selectedMaterialReducer.name);
-    const widthRef = useRef(null);
-    const heightRef = useRef(null);
-    const piecesRef = useRef(null);
+    const widthRef = React.useRef<HTMLInputElement>(null);
+    const heightRef = React.useRef<HTMLInputElement>(null);
+    const piecesRef = React.useRef<HTMLInputElement>(null);
+
+    const res = useCategorySelector();
+    console.log("res", res);
 
     function createOrderItem() {
         addOrderItem(
             selectedCategory,
             selectedMaterial,
-            widthRef.current,
-            heightRef.current,
-            piecesRef.current,
+            widthRef.current?.value,
+            heightRef.current?.value,
+            piecesRef.current?.value,
             price
         );
     }
