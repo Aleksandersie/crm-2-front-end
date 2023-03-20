@@ -1,6 +1,7 @@
 const orderItemsArray: IOrderItem[] = [];
 
 export function addOrderItem(
+    orderType: string,
     orderCategory: string,
     orderMaterial: string,
     width: number,
@@ -9,11 +10,12 @@ export function addOrderItem(
     selectedPrice: number | undefined
 ) {
     orderItemsArray.push(
-        new OrderItem(orderCategory, orderMaterial, width, height, pieces, selectedPrice)
+        new OrderItem(orderType, orderCategory, orderMaterial, width, height, pieces, selectedPrice)
     );
     return orderItemsArray;
 }
 export interface IOrderItem {
+    orderType: string;
     orderCategory: string;
     orderMaterial: string;
     width: number | undefined;
@@ -23,6 +25,7 @@ export interface IOrderItem {
     itemSum: number;
 }
 class OrderItem implements IOrderItem {
+    orderType: string;
     orderCategory: string;
     orderMaterial: string;
     width: number;
@@ -32,6 +35,7 @@ class OrderItem implements IOrderItem {
     itemSum: number;
 
     constructor(
+        orderType: string,
         orderCategory: string,
         orderMaterial: string,
         width: number,
@@ -40,6 +44,7 @@ class OrderItem implements IOrderItem {
         selectedPrice: number | undefined
         //itemSum: () => number
     ) {
+        this.orderType = orderType;
         this.orderCategory = orderCategory;
         this.orderMaterial = orderMaterial;
         this.width = Number(width);

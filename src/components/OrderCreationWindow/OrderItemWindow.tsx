@@ -12,6 +12,7 @@ import { useCategorySelector } from "../useCategorySelector/useCategorySelector"
 
 const OrderItemWindow = () => {
     const price = usePriceSelector();
+    const selectedType = useAppSelector((state) => state.selectedOrderTypeReducer.orderType);
     const selectedCategory = useAppSelector((state) => state.selectedOrderCategoryReducer.name);
     const selectedMaterial = useAppSelector((state) => state.selectedMaterialReducer.name);
     const widthRef = React.useRef<HTMLInputElement>(null);
@@ -23,6 +24,7 @@ const OrderItemWindow = () => {
 
     function createOrderItem() {
         const result = addOrderItem(
+            selectedType,
             selectedCategory,
             selectedMaterial,
             Number(widthRef.current?.value),

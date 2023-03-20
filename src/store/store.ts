@@ -4,8 +4,10 @@ import orderCategoryReducer from "./slice/orderCategorySlice";
 import selectedOrderCategoryReducer from "./slice/selectedOrderCategorySlice.";
 import materialSliceReducer from "./slice/materiallSlice";
 import selectedMaterialReducer from "./slice/selectedMaterialSlice";
+import selectedOrderTypeReducer from "./slice/selectedOrderType";
 
 const rootReducer = combineReducers({
+    selectedOrderTypeReducer,
     orderCategoryReducer,
     selectedOrderCategoryReducer,
     selectedMaterialReducer,
