@@ -17,6 +17,7 @@ export function addOrderItem(
     return orderItemsArray;
 }
 export interface IOrderItem {
+    itemRandomNumber: number;
     orderType: string;
     orderCategory: string;
     orderMaterial: string;
@@ -25,11 +26,12 @@ export interface IOrderItem {
     pieces: number | undefined;
     selectedPrice: number | undefined;
     itemArea: number;
-    totalArea: number;
+    itemTotalArea: number;
     itemOnePscCost: number;
     itemTotalCost: number;
 }
 class OrderItem implements IOrderItem {
+    itemRandomNumber: number;
     orderType: string;
     orderCategory: string;
     orderMaterial: string;
@@ -38,7 +40,7 @@ class OrderItem implements IOrderItem {
     pieces: number;
     selectedPrice: number | undefined;
     itemArea: number;
-    totalArea: number;
+    itemTotalArea: number;
     itemOnePscCost: number;
     itemTotalCost: number;
 
@@ -51,6 +53,7 @@ class OrderItem implements IOrderItem {
         pieces: number,
         selectedPrice: number | undefined
     ) {
+        this.itemRandomNumber = parseInt((Math.random() * 10000).toFixed());
         this.orderType = orderType;
         this.orderCategory = orderCategory;
         this.orderMaterial = orderMaterial;
@@ -59,15 +62,15 @@ class OrderItem implements IOrderItem {
         this.pieces = Number(pieces);
         this.selectedPrice = selectedPrice;
         this.itemArea = this.itemAreaCalculation();
-        this.totalArea = this.totalAreaCalculator();
+        this.itemTotalArea = this.totalAreaCalculator();
         this.itemOnePscCost = this.itemCostCalculator();
         this.itemTotalCost = this.itemTotalCostCalculator();
     }
     itemAreaCalculation(): number {
-        return this.width * this.height;
+        return Number((this.width * this.height).toFixed(3));
     }
     totalAreaCalculator(): number {
-        return this.width * this.height * this.pieces;
+        return this.itemArea * this.pieces;
     }
     itemCostCalculator(): number {
         switch (this.orderType) {
