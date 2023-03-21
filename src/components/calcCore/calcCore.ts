@@ -1,6 +1,6 @@
 import { orderType } from "../useCategorySelector/useCategorySelector";
 
-const orderItemsArray: IOrderItem[] = [];
+export const orderItemsArray: IOrderItem[] = [];
 
 export function addOrderItem(
     orderType: string,
@@ -67,7 +67,7 @@ export class OrderItem implements IOrderItem {
         this.itemTotalCost = this.itemTotalCostCalculator();
     }
     itemAreaCalculation(): number {
-        return Number((this.width * this.height).toFixed(3));
+        return Number((this.width * this.height).toFixed(5));
     }
     totalAreaCalculator(): number {
         return this.itemArea * this.pieces;
