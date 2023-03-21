@@ -1,11 +1,12 @@
 .selector{
   width: 200px;
+  text-align: center;
   margin: 0 auto;
   position: relative;
 }
 
 .selectorHeader{
-  padding: 5px 10px 5px 10px;
+  padding: 8px 10px 8px 10px;
   border: 1px solid #cccccc;
   cursor: pointer;
   transition: 0.3s;

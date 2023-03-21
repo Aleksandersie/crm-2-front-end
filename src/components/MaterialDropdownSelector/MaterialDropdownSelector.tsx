@@ -35,8 +35,6 @@ const MaterialDropdownSelector: React.FC = () => {
             <div className={styles.selectorHeader} onClick={() => setActiveDropdown(true)}>
                 {name || "Выберите материал"}
             </div>
-            <button onClick={inter}>interior</button>
-            <button onClick={digital}>digital</button>
             <div className={activeDropdown ? styles.selectorBody : styles.selectorBodyInactive}>
                 {materials.map((material) => (
                     <div

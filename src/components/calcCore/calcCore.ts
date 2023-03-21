@@ -30,7 +30,7 @@ export interface IOrderItem {
     itemOnePscCost: number;
     itemTotalCost: number;
 }
-class OrderItem implements IOrderItem {
+export class OrderItem implements IOrderItem {
     itemRandomNumber: number;
     orderType: string;
     orderCategory: string;

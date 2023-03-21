@@ -23,11 +23,17 @@
   border: 1px solid #cccccc;
   cursor: pointer;
   transition: 0.3s;
+  min-height: 38px;
+  min-width: 88px;
+  text-align: center;
   &:hover{
     background-color: #b2b2b2;
   }
 }
 .input{
-  width: 50px;
+  width: 65px;
+  height: 26px;
   border: 1px solid black;
+  text-align: center;
+  border-radius: 5px;
 }
