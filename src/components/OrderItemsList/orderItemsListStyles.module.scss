@@ -1,4 +1,14 @@
+@import "../../main.module.scss";
+
 .itemWrapper{
+  width: 900px;
   padding: 11px 20px 11px 20px;
-  border: 1px solid black
+  border: 1px solid $btnBorder;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+.itemElement{
+  border-right: 2px solid $btnBorder;
+  padding-right: 7px;
 }

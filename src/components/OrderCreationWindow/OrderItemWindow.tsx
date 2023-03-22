@@ -48,7 +48,7 @@ const OrderItemWindow:React.FC<IOrderItemWindow> = ({closeModalWindow}) => {
             selectedMaterial,
             Number(width),
             Number(height),
-            Number(piecesRef.current?.value),
+            Number(pieces),
             price
         );
         console.log(result);
