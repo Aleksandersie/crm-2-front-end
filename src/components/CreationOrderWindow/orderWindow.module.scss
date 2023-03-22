@@ -1,0 +1,74 @@
+@import "../../main.module";
+.creationOrderWindowBody{
+  width: 1200px;
+  height: 700px;
+  background-color: white;
+  border-radius: 20px;
+}
+.header{
+  height: 80px;
+  background:$windowHeaderBackground;
+  border-bottom: 1px solid #6D6D6D;
+  border-radius: 20px 20px 0px 0px;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+
+.addBtn{
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  width: 250px;
+  height: 50px;
+  border-radius: 20px;
+  cursor: pointer;
+  background-color: $yellowBtn;
+  color:$textColor;
+  border: 1px solid $btnBorder;
+  transition: 0.3s;
+  text-align: center;
+  line-height: 50px;
+  &:hover{
+    background-color:$yellowBtnHover;
+  }
+
+}
+.orderItemsBorder{
+  border: 1px solid $btnBorder;
+  border-radius: 20px;
+  width: 1150px;
+  height: 300px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+.middleContainer{
+  display:flex;
+  width: 1150px;
+  margin: 0 auto;
+  margin-top: 25px;
+  justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.addOrderStringBtn{
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  width: 150px;
+  height: 50px;
+  border-radius: 20px;
+  cursor: pointer;
+  background-color: $yellowBtn;
+  color:$textColor;
+  border: 1px solid $btnBorder;
+  transition: 0.3s;
+  text-align: center;
+  line-height: 50px;
+  &:hover{
+    background-color:$yellowBtnHover;
+  }
+}
+.textArea{
+  width: 600px;
+  height: 200px;
+  border-radius: 20px;
+}
