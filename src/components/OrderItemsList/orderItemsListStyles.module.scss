@@ -1,14 +1,46 @@
 @import "../../main.module.scss";
 
 .itemWrapper{
+  font-family: "Inter", sans-serif;
   width: 900px;
   padding: 11px 20px 11px 20px;
   border: 1px solid $btnBorder;
   border-radius: 20px;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 10px;
 }
 .itemElement{
+
   border-right: 2px solid $btnBorder;
   padding-right: 7px;
+}
+.categoryElement{
+  width: 175px;
+  border-right: 2px solid $btnBorder;
+  padding-right: 7px;
+}
+.materialElement{
+  width: 120px;
+  border-right: 2px solid $btnBorder;
+  padding-right: 7px;
+}
+.itemPlaceholder{
+  font-family: "Inter", sans-serif;
+  width: 900px;
+  padding: 11px 20px 11px 20px;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+.categoryPlaceholder{
+  width: 175px;
+  text-align: center;
+  font-size: 12px;
+}
+.materialPlaceholder{
+  width: 120px;
+  text-align: center;
+  font-size: 12px;
 }
