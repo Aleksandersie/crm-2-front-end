@@ -11,7 +11,7 @@ export const priceApi = createApi({
     baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:5000/api" }),
     endpoints: (builder) => ({
         getPrice: builder.query<IPrice, string>({
-            query: () => "/getPriceList",
+            query: () => "/prices/getPriceList",
         }),
     }),
 });
