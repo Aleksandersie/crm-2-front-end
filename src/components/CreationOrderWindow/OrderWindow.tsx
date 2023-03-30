@@ -7,6 +7,9 @@ import OrderItemsList from "../OrderItemsList/OrderItemsList";
 
 const OrderWindow: React.FC = () => {
     const [activeModal, setActiveModal] = useState(false);
+    function closeModal(){
+        setActiveModal(false)
+    }
     return (
         <div className={styles.creationOrderWindowBody}>
             <div className={styles.header}>
@@ -22,7 +25,7 @@ const OrderWindow: React.FC = () => {
                 <textarea className={styles.textArea}></textarea>
             </div>
             <Modal active={activeModal} setActive={setActiveModal}>
-                <OrderItemWindow />
+                <OrderItemWindow closeModalWindow={closeModal} />
             </Modal>
         </div>
     );

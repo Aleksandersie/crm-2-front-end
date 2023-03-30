@@ -11,7 +11,11 @@ import { useAppSelector } from "../../store/reduxHooks/reduxHooks";
 import { useCategorySelector } from "../useCategorySelector/useCategorySelector";
 import { preCalculation } from "../preCalculation/preCalculation";
 
-const OrderItemWindow = () => {
+interface IOrderItemWindow{
+    closeModalWindow: ()=>void
+}
+
+const OrderItemWindow:React.FC<IOrderItemWindow> = ({closeModalWindow}) => {
     const price = usePriceSelector();
     const selectedType = useAppSelector((state) => state.selectedOrderTypeReducer.orderType);
     const selectedCategory = useAppSelector((state) => state.selectedOrderCategoryReducer.name);
@@ -44,10 +48,11 @@ const OrderItemWindow = () => {
             selectedMaterial,
             Number(width),
             Number(height),
-            Number(piecesRef.current?.value),
+            Number(pieces),
             price
         );
         console.log(result);
+        closeModalWindow() 
     }
 
     useEffect(() => {

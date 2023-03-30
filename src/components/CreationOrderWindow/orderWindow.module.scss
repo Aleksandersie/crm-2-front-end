@@ -40,6 +40,10 @@
   height: 300px;
   margin: 0 auto;
   margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
 }
 .middleContainer{
   display:flex;
