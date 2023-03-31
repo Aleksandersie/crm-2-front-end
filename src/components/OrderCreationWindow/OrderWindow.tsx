@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import styles from "./orderWindow.module.scss";
 import AddCustomerButton from "./AddCustomerButton";
 import Modal from "../Modal/Modal";
-import OrderItemWindow from "../OrderCreationWindow/OrderItemWindow";
+import OrderItemWindow from "../OrderItemCreationWindow/OrderItemWindow";
 import OrderItemsList from "../OrderItemsList/OrderItemsList";
 
 const OrderWindow: React.FC = () => {
     const [activeModal, setActiveModal] = useState(false);
-    function closeModal(){
-        setActiveModal(false)
+    function closeModal() {
+        setActiveModal(false);
     }
     return (
         <div className={styles.creationOrderWindowBody}>
@@ -23,6 +23,7 @@ const OrderWindow: React.FC = () => {
                     Добавить
                 </div>
                 <textarea className={styles.textArea}></textarea>
+                <button>Test save</button>
             </div>
             <Modal active={activeModal} setActive={setActiveModal}>
                 <OrderItemWindow closeModalWindow={closeModal} />
