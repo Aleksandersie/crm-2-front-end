@@ -8,7 +8,7 @@ import { useAppDispatch, useAppSelector } from "../../store/reduxHooks/reduxHook
 import { useGetPriceQuery } from "../../RTK/priceApi";
 import { IPrice } from "../../store/slice/priceSlice";
 import { selectedOrderCategorySlice } from "../../store/slice/selectedOrderCategorySlice.";
-import { useGetAllOrdersQuery } from "../../RTK/ordersApi";
+import { useCreateOrderMutation, useGetAllOrdersQuery } from "../../RTK/ordersApi";
 
 const MainWindow = () => {
     // const count = useSelector((state:RootState)=>state.counterReducer.counter)
@@ -23,7 +23,12 @@ const MainWindow = () => {
 
     const { data } = useGetPriceQuery("");
     const test = useGetAllOrdersQuery("");
-    console.log(test);
+    console.log(test.data);
+
+    const [createOrder] = useCreateOrderMutation();
+    useEffect(() => {
+        createOrder({ test: "y=tes" });
+    }, []);
 
     function action(el: string) {
         console.log(el);

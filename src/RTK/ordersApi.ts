@@ -14,10 +14,19 @@ export interface IOrder {
 export const ordersApi = createApi({
     reducerPath: "ordersApi",
     baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:5000/api/" }),
+    tagTypes: ["orders"],
     endpoints: (builder) => ({
         getAllOrders: builder.query<IOrder, string>({
             query: () => "orders/getAllOrders",
         }),
+        createOrder: builder.mutation({
+            query: (payload) => ({
+                url: "orders/createOrder",
+                method: "POST",
+                body: payload,
+            }),
+            invalidatesTags: ["orders"],
+        }),
     }),
 });
-export const { useGetAllOrdersQuery } = ordersApi;
+export const { useGetAllOrdersQuery, useCreateOrderMutation } = ordersApi;
