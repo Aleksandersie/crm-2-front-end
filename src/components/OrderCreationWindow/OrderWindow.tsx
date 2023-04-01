@@ -4,12 +4,21 @@ import AddCustomerButton from "./AddCustomerButton";
 import Modal from "../Modal/Modal";
 import OrderItemWindow from "../OrderItemCreationWindow/OrderItemWindow";
 import OrderItemsList from "../OrderItemsList/OrderItemsList";
+import {orderItemsArray} from "../calcCore/calcCore"
+import { useCreateOrderMutation } from "../../RTK/ordersApi";
 
 const OrderWindow: React.FC = () => {
     const [activeModal, setActiveModal] = useState(false);
+    const [createOrder] = useCreateOrderMutation()
     function closeModal() {
         setActiveModal(false);
     }
+
+    function sendOrderToBackEnd(){
+        const payload = "123"
+        createOrder(orderItemsArray)
+    }
+
     return (
         <div className={styles.creationOrderWindowBody}>
             <div className={styles.header}>
@@ -23,7 +32,7 @@ const OrderWindow: React.FC = () => {
                     Добавить
                 </div>
                 <textarea className={styles.textArea}></textarea>
-                <button>Test save</button>
+                <button onClick={sendOrderToBackEnd}>Test save</button>
             </div>
             <Modal active={activeModal} setActive={setActiveModal}>
                 <OrderItemWindow closeModalWindow={closeModal} />
