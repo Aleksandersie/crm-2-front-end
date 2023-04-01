@@ -6,6 +6,7 @@ import materialSliceReducer from "./slice/materiallSlice";
 import selectedMaterialReducer from "./slice/selectedMaterialSlice";
 import selectedOrderTypeReducer from "./slice/selectedOrderType";
 import { ordersApi } from "../RTK/ordersApi";
+import { authApi } from "../RTK/authApi";
 
 const rootReducer = combineReducers({
     selectedOrderTypeReducer,
@@ -15,13 +16,14 @@ const rootReducer = combineReducers({
     materialSliceReducer,
     [priceApi.reducerPath]: priceApi.reducer,
     [ordersApi.reducerPath]: ordersApi.reducer,
+    [authApi.reducerPath]: authApi.reducer
 });
 
 export const setupStore = () =>
     configureStore({
         reducer: rootReducer,
         middleware: (getDefaultMiddleware) =>
-            getDefaultMiddleware().concat(priceApi.middleware, ordersApi.middleware),
+            getDefaultMiddleware().concat(priceApi.middleware, ordersApi.middleware,authApi.middleware),
     });
 
 export type RootState = ReturnType<typeof rootReducer>;

@@ -6,10 +6,13 @@ import OrderItemWindow from "../OrderItemCreationWindow/OrderItemWindow";
 import OrderItemsList from "../OrderItemsList/OrderItemsList";
 import {orderItemsArray} from "../calcCore/calcCore"
 import { useCreateOrderMutation } from "../../RTK/ordersApi";
+import { useLoginMutation } from "../../RTK/authApi";
 
 const OrderWindow: React.FC = () => {
     const [activeModal, setActiveModal] = useState(false);
     const [createOrder] = useCreateOrderMutation()
+    const [login] = useLoginMutation()
+    
     function closeModal() {
         setActiveModal(false);
     }
@@ -17,6 +20,7 @@ const OrderWindow: React.FC = () => {
     function sendOrderToBackEnd(){
         const payload = "123"
         createOrder(orderItemsArray)
+        login({userName:"Test",userPass:"1234"})
     }
 
     return (
