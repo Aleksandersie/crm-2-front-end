@@ -28,8 +28,12 @@ const MainWindow = () => {
         dispatch(selectedOrderCategorySlice.actions.setSelectedOrderCategory(el));
     }
     async function loginUser() {
-        const token = await login({ userName: "Test", userPass: "1234" });
-        console.log(token);
+        try {
+            const response = await login({ userName: "Test", userPass: "1234" });
+            console.log(response.data);
+        } catch (e) {
+            console.log(e);
+        }
     }
     return (
         <div className={styles.mainWindowContainer}>
