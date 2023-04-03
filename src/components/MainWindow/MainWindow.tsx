@@ -8,6 +8,7 @@ import { useAppDispatch, useAppSelector } from "../../store/reduxHooks/reduxHook
 import { useGetPriceQuery } from "../../RTK/priceApi";
 import { IPrice } from "../../store/slice/priceSlice";
 import { selectedOrderCategorySlice } from "../../store/slice/selectedOrderCategorySlice.";
+import { useLoginMutation } from "../../RTK/authApi";
 
 const MainWindow = () => {
     // const count = useSelector((state:RootState)=>state.counterReducer.counter)
@@ -19,12 +20,16 @@ const MainWindow = () => {
     const category = useAppSelector((state) => state.orderCategoryReducer);
     const { name } = useAppSelector((state) => state.selectedOrderCategoryReducer);
     const get = selectedOrderCategorySlice.actions.setSelectedOrderCategory("asd");
-
     const { data } = useGetPriceQuery("");
+    const [login] = useLoginMutation();
 
     function action(el: string) {
         console.log(el);
         dispatch(selectedOrderCategorySlice.actions.setSelectedOrderCategory(el));
+    }
+    async function loginUser() {
+        const token = await login({ userName: "Test", userPass: "1234" });
+        console.log(token);
     }
     return (
         <div className={styles.mainWindowContainer}>
@@ -40,6 +45,7 @@ const MainWindow = () => {
                 {/*<button onClick={()=>dispatch(plus())}>+</button>*/}
                 {/*<button onClick={()=>dispatch(custom(100))}>100</button>*/}
                 {/*<button onClick={()=>dispatch(fn.clear())}>Clear</button>*/}
+                <button onClick={loginUser}>Login</button>
             </div>
         </div>
     );

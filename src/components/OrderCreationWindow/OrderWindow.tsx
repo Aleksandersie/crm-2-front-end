@@ -4,23 +4,23 @@ import AddCustomerButton from "./AddCustomerButton";
 import Modal from "../Modal/Modal";
 import OrderItemWindow from "../OrderItemCreationWindow/OrderItemWindow";
 import OrderItemsList from "../OrderItemsList/OrderItemsList";
-import {orderItemsArray} from "../calcCore/calcCore"
+import { orderItemsArray } from "../calcCore/calcCore";
 import { useCreateOrderMutation } from "../../RTK/ordersApi";
 import { useLoginMutation } from "../../RTK/authApi";
 
 const OrderWindow: React.FC = () => {
     const [activeModal, setActiveModal] = useState(false);
-    const [createOrder] = useCreateOrderMutation()
-    const [login] = useLoginMutation()
-    
+    const [createOrder] = useCreateOrderMutation();
+    // const [login] = useLoginMutation();
+
     function closeModal() {
         setActiveModal(false);
     }
 
-    function sendOrderToBackEnd(){
-        const payload = "123"
-        createOrder(orderItemsArray)
-        login({userName:"Test",userPass:"1234"})
+    async function sendOrderToBackEnd() {
+        const payload = "123";
+        createOrder(orderItemsArray);
+        // await login({ userName: "Test", userPass: "1234" });
     }
 
     return (
