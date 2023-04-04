@@ -9,7 +9,7 @@ import { useGetPriceQuery } from "../../RTK/priceApi";
 import { IPrice } from "../../store/slice/priceSlice";
 import { selectedOrderCategorySlice } from "../../store/slice/selectedOrderCategorySlice.";
 import { useLoginMutation } from "../../RTK/authApi";
-
+import jwt_decode from "jwt-decode";
 const MainWindow = () => {
     // const count = useSelector((state:RootState)=>state.counterReducer.counter)
     // const dispatch:AppDispatch = useDispatch()
@@ -29,8 +29,8 @@ const MainWindow = () => {
     }
     async function loginUser() {
         try {
-            const response = await login({ userName: "Test", userPass: "1234" });
-            console.log(response.data);
+            const res = await login({ userName: "Test", userPass: "1234" });
+            console.log(res);
         } catch (e) {
             console.log(e);
         }

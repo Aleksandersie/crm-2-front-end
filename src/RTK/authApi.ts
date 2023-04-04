@@ -5,9 +5,10 @@ interface ILoginRequest {
     userPass: string;
 }
 interface IAuthResponse {
+    userName: string;
     token: any;
 }
-
+//<IAuthResponse, ILoginRequest>
 export const authApi = createApi({
     reducerPath: "authApi",
     baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:5000/api/" }),
@@ -19,7 +20,7 @@ export const authApi = createApi({
                 method: "POST",
                 body: payload,
             }),
-            //transformResponse: (response: IAuthResponse) => response.token,
+            // transformResponse: (response: IAuthResponse) => response.token,
         }),
     }),
 });
