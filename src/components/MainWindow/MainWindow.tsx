@@ -10,6 +10,7 @@ import { IPrice } from "../../store/slice/priceSlice";
 import { selectedOrderCategorySlice } from "../../store/slice/selectedOrderCategorySlice.";
 import { useLoginMutation } from "../../RTK/authApi";
 import jwt_decode from "jwt-decode";
+import { getToken, setToken } from "../../store/slice/authSlice";
 const MainWindow = () => {
     // const count = useSelector((state:RootState)=>state.counterReducer.counter)
     // const dispatch:AppDispatch = useDispatch()
@@ -22,6 +23,7 @@ const MainWindow = () => {
     const get = selectedOrderCategorySlice.actions.setSelectedOrderCategory("asd");
     const { data } = useGetPriceQuery("");
     const [login] = useLoginMutation();
+    const { currentUserName } = useAppSelector((state) => state.authSliceReducer);
 
     function action(el: string) {
         console.log(el);
@@ -29,8 +31,12 @@ const MainWindow = () => {
     }
     async function loginUser() {
         try {
-            const res = await login({ userName: "Test", userPass: "1234" });
-            console.log(res);
+            const data = await login({ userName: "Test", userPass: "1234" });
+            dispatch(setToken(data));
+            const storeToken = getToken();
+
+            console.log(data);
+            console.log("token", currentUserName);
         } catch (e) {
             console.log(e);
         }
