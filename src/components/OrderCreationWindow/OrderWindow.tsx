@@ -7,11 +7,12 @@ import OrderItemsList from "../OrderItemsList/OrderItemsList";
 import { orderItemsArray } from "../calcCore/calcCore";
 import { useCreateOrderMutation } from "../../RTK/ordersApi";
 import { useLoginMutation } from "../../RTK/authApi";
+import { useAppSelector } from "../../store/reduxHooks/reduxHooks";
 
 const OrderWindow: React.FC = () => {
     const [activeModal, setActiveModal] = useState(false);
     const [createOrder] = useCreateOrderMutation();
-    // const [login] = useLoginMutation();
+    const { currentUserName } = useAppSelector((state) => state.authSliceReducer);
 
     function closeModal() {
         setActiveModal(false);
@@ -19,7 +20,7 @@ const OrderWindow: React.FC = () => {
 
     async function sendOrderToBackEnd() {
         const payload = "123";
-        createOrder(orderItemsArray);
+        createOrder({ orderItemsArray, currentUserName });
         // await login({ userName: "Test", userPass: "1234" });
     }
 

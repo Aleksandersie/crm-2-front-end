@@ -23,20 +23,22 @@ const MainWindow = () => {
     const get = selectedOrderCategorySlice.actions.setSelectedOrderCategory("asd");
     const { data } = useGetPriceQuery("");
     const [login] = useLoginMutation();
-    const { currentUserName } = useAppSelector((state) => state.authSliceReducer);
+    const { token, currentUserName } = useAppSelector((state) => state.authSliceReducer);
 
     function action(el: string) {
         console.log(el);
         dispatch(selectedOrderCategorySlice.actions.setSelectedOrderCategory(el));
     }
+
     async function loginUser() {
         try {
             const data = await login({ userName: "Test", userPass: "1234" });
-            dispatch(setToken(data));
+            await dispatch(setToken(data));
             const storeToken = getToken();
 
-            console.log(data);
-            console.log("token", currentUserName);
+            console.log("data is", data);
+            console.log("token is", token);
+            console.log("name is", currentUserName);
         } catch (e) {
             console.log(e);
         }

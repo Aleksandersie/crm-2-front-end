@@ -17,12 +17,8 @@ export const authSlice = createSlice({
     initialState,
     reducers: {
         setToken: (state, action: PayloadAction<any>) => {
-            //const { token, currentUserName } = action.payload;
-            // state.token = token;
-            // state.currentUserName = currentUserName;
-            console.log(action.payload);
             state.token = action.payload.data.token;
-            //state.currentUserName = action.payload.data.currentUserName;
+            state.currentUserName = action.payload.data.currentUserName;
         },
         getToken: (state): any => {
             return state.token;

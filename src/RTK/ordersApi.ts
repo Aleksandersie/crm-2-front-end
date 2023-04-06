@@ -2,6 +2,10 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { IOrderItem } from "../components/calcCore/calcCore";
 
 export interface IOrder {
+    orderItems: IOrderItems[];
+    orderAuthor: string;
+}
+export interface IOrderItems {
     id: number;
     randomNumber: number;
     orderOwner: string;
