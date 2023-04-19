@@ -8,6 +8,7 @@ import selectedOrderTypeReducer from "./slice/selectedOrderType";
 import authSliceReducer from "../store/slice/authSlice";
 import { ordersApi } from "../RTK/ordersApi";
 import { authApi } from "../RTK/authApi";
+import { userApi } from "../RTK/userApi";
 
 const rootReducer = combineReducers({
     selectedOrderTypeReducer,
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
     [priceApi.reducerPath]: priceApi.reducer,
     [ordersApi.reducerPath]: ordersApi.reducer,
     [authApi.reducerPath]: authApi.reducer,
+    [userApi.reducerPath]: userApi.reducer,
 });
 
 export const setupStore = () =>
@@ -28,7 +30,8 @@ export const setupStore = () =>
             getDefaultMiddleware().concat(
                 priceApi.middleware,
                 ordersApi.middleware,
-                authApi.middleware
+                authApi.middleware,
+                userApi.middleware
             ),
     });
 

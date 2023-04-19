@@ -1,12 +1,21 @@
 import React, { useState } from "react";
 import styles from "../MainWindow/mainWindowStyles.module.scss";
 import localStyle from "./styles.module.scss";
+import { useSearchCustomerQuery } from "../../RTK/userApi";
+import { useAppDispatch } from "../../store/reduxHooks/reduxHooks";
+import { selectedUserSlice } from "../../store/slice/selectedUserSlice";
 
 const SearchCustomerInput = () => {
     const [searchString, setSearchString] = useState("");
+    const searchData = useSearchCustomerQuery({ userName: searchString });
+    const dispatch = useAppDispatch();
 
-    function search() {
-        console.log(searchString);
+    async function search() {
+        console.log(searchData);
+        //dispatch(selectedUserSlice.actions.setSelectedUser(data));
+        dispatch(
+            selectedUserSlice.actions.setSelectedUser({ userName: "Test", priceCategory: "qwe" })
+        );
     }
 
     return (
