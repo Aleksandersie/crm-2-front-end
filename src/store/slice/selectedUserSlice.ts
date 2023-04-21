@@ -24,3 +24,5 @@ export const selectedUserSlice = createSlice({
         },
     },
 });
+
+export default selectedUserSlice.reducer;

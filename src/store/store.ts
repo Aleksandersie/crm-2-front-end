@@ -6,6 +6,7 @@ import materialSliceReducer from "./slice/materiallSlice";
 import selectedMaterialReducer from "./slice/selectedMaterialSlice";
 import selectedOrderTypeReducer from "./slice/selectedOrderType";
 import authSliceReducer from "../store/slice/authSlice";
+import selectedUserSliceReducer from "./slice/selectedUserSlice";
 import { ordersApi } from "../RTK/ordersApi";
 import { authApi } from "../RTK/authApi";
 import { userApi } from "../RTK/userApi";
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
     selectedMaterialReducer,
     materialSliceReducer,
     authSliceReducer,
+    selectedUserSliceReducer,
     [priceApi.reducerPath]: priceApi.reducer,
     [ordersApi.reducerPath]: ordersApi.reducer,
     [authApi.reducerPath]: authApi.reducer,

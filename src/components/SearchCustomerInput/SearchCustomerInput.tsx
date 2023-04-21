@@ -5,10 +5,15 @@ import { ICustomerResponse, useSearchCustomerQuery } from "../../RTK/userApi";
 import { useAppDispatch } from "../../store/reduxHooks/reduxHooks";
 import { selectedUserSlice } from "../../store/slice/selectedUserSlice";
 
-const SearchCustomerInput = () => {
+interface ISearchCustomerInput {
+    setActive: any;
+}
+
+const SearchCustomerInput: React.FC<ISearchCustomerInput> = ({ setActive }) => {
     const [searchString, setSearchString] = useState("");
     const searchData = useSearchCustomerQuery({ userName: searchString });
     const dispatch = useAppDispatch();
+    console.log("active", setActive);
 
     async function search() {
         console.log(searchData.data);
@@ -18,8 +23,11 @@ const SearchCustomerInput = () => {
         //     selectedUserSlice.actions.setSelectedUser({ userName: "Test", priceCategory: "qwe" })
         // );
     }
+    function setCurrentCustomer(user: ICustomerResponse) {
+        dispatch(selectedUserSlice.actions.setSelectedUser(user));
+        setActive(false);
+    }
 
-    // @ts-ignore
     return (
         <>
             <div className={localStyle.inputArea}>
@@ -31,9 +39,14 @@ const SearchCustomerInput = () => {
                     }
                 />
                 <button onClick={() => search()}>Search</button>
-                <div>
+                <div className={localStyle.searchResult}>
                     {searchData.data?.map((user: ICustomerResponse) => (
-                        <p>{user.userName}</p>
+                        <p
+                            className={localStyle.searchElement}
+                            onClick={() => setCurrentCustomer(user)}
+                        >
+                            {user.userName}
+                        </p>
                     ))}
                 </div>
             </div>

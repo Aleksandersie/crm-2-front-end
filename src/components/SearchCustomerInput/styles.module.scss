@@ -3,3 +3,12 @@
   border-radius: 20px;
   background-color: white;
 }
+.searchResult{
+  margin-top: 10px;
+}
+.searchElement{
+  &:hover{
+    color: #00476e;
+    cursor: pointer;
+  }
+}
