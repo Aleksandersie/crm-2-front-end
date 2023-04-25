@@ -6,7 +6,7 @@ import { useAppSelector } from "../../store/reduxHooks/reduxHooks";
 
 const AddCustomerButton: React.FC = () => {
     const [addCustomer, setAddCustomer] = useState(false);
-    const { userName } = useAppSelector((state) => state.selectedUserSliceReducer);
+    const { userName } = useAppSelector((state) => state.selectedCustomerSliceReducer);
     return (
         <>
             <div className={styles.addBtn} onClick={() => setAddCustomer(true)}>

@@ -1,28 +1,27 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-interface ISelectedUser {
+interface ISelectedCustomer {
     userName: string | undefined;
     priceCategory: string | undefined;
 }
 
-const initialState: ISelectedUser = {
+const initialState: ISelectedCustomer = {
     userName: "",
     priceCategory: "",
 };
 
-export const selectedUserSlice = createSlice({
-    name: "selectedUserSlice",
+export const selectedCustomerSlice = createSlice({
+    name: "selectedCustomerSlice",
     initialState,
     reducers: {
-        setSelectedUser: (state, action: PayloadAction<any>) => {
-            console.log("payload", action.payload);
+        setSelectedCustomer: (state, action: PayloadAction<any>) => {
             //const { userName, priceCategory } = action.payload;
             state.userName = action.payload.userName;
-            //state.priceCategory = priceCategory;
+            state.priceCategory = action.payload.priceCategory;
             // state.userName = action.payload?.userName;
             // state.priceCategory = action.payload?.priceCategory;
         },
     },
 });
 
-export default selectedUserSlice.reducer;
+export default selectedCustomerSlice.reducer;

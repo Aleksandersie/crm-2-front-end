@@ -7,7 +7,7 @@ export interface ICustomerResponse {
     priceCategory: string;
 }
 interface ICustomerSearchParams {
-    userName: string;
+    customerName: string;
 }
 
 export const userApi = createApi({
@@ -16,10 +16,10 @@ export const userApi = createApi({
     endpoints: (builder) => ({
         searchCustomer: builder.query<ICustomerResponse[], ICustomerSearchParams>({
             query: (arg) => {
-                const { userName } = arg;
+                const { customerName } = arg;
                 return {
                     url: "/users/searchCustomerByName",
-                    params: { userName },
+                    params: { customerName },
                 };
             },
         }),

@@ -3,7 +3,7 @@ import styles from "../MainWindow/mainWindowStyles.module.scss";
 import localStyle from "./styles.module.scss";
 import { ICustomerResponse, useSearchCustomerQuery } from "../../RTK/userApi";
 import { useAppDispatch } from "../../store/reduxHooks/reduxHooks";
-import { selectedUserSlice } from "../../store/slice/selectedUserSlice";
+import { selectedCustomerSlice } from "../../store/slice/selectedCustomerSlice";
 
 interface ISearchCustomerInput {
     setActive: any;
@@ -11,7 +11,7 @@ interface ISearchCustomerInput {
 
 const SearchCustomerInput: React.FC<ISearchCustomerInput> = ({ setActive }) => {
     const [searchString, setSearchString] = useState("");
-    const searchData = useSearchCustomerQuery({ userName: searchString });
+    const searchData = useSearchCustomerQuery({ customerName: searchString });
     const dispatch = useAppDispatch();
     console.log("active", setActive);
 
@@ -23,8 +23,8 @@ const SearchCustomerInput: React.FC<ISearchCustomerInput> = ({ setActive }) => {
         //     selectedUserSlice.actions.setSelectedUser({ userName: "Test", priceCategory: "qwe" })
         // );
     }
-    function setCurrentCustomer(user: ICustomerResponse) {
-        dispatch(selectedUserSlice.actions.setSelectedUser(user));
+    function setCurrentCustomer(customer: ICustomerResponse) {
+        dispatch(selectedCustomerSlice.actions.setSelectedCustomer(customer));
         setActive(false);
     }
 
@@ -40,12 +40,12 @@ const SearchCustomerInput: React.FC<ISearchCustomerInput> = ({ setActive }) => {
                 />
                 <button onClick={() => search()}>Search</button>
                 <div className={localStyle.searchResult}>
-                    {searchData.data?.map((user: ICustomerResponse) => (
+                    {searchData.data?.map((customer: ICustomerResponse) => (
                         <p
                             className={localStyle.searchElement}
-                            onClick={() => setCurrentCustomer(user)}
+                            onClick={() => setCurrentCustomer(customer)}
                         >
-                            {user.userName}
+                            {customer.userName}
                         </p>
                     ))}
                 </div>
