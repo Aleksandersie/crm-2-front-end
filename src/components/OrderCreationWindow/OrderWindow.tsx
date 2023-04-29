@@ -13,6 +13,7 @@ const OrderWindow: React.FC = () => {
     const [activeModal, setActiveModal] = useState(false);
     const [createOrder] = useCreateOrderMutation();
     const { currentUserName } = useAppSelector((state) => state.authSliceReducer);
+    const { customerName } = useAppSelector((state) => state.selectedCustomerSliceReducer);
 
     function closeModal() {
         setActiveModal(false);
@@ -20,7 +21,7 @@ const OrderWindow: React.FC = () => {
 
     async function sendOrderToBackEnd() {
         const payload = "123";
-        createOrder({ orderItemsArray, currentUserName });
+        createOrder({ orderItemsArray, currentUserName, customerName });
         // await login({ userName: "Test", userPass: "1234" });
     }
 

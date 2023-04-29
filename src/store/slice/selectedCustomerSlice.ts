@@ -1,12 +1,12 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface ISelectedCustomer {
-    userName: string | undefined;
+    customerName: string | undefined;
     priceCategory: string | undefined;
 }
 
 const initialState: ISelectedCustomer = {
-    userName: "",
+    customerName: "",
     priceCategory: "",
 };
 
@@ -16,7 +16,7 @@ export const selectedCustomerSlice = createSlice({
     reducers: {
         setSelectedCustomer: (state, action: PayloadAction<any>) => {
             //const { userName, priceCategory } = action.payload;
-            state.userName = action.payload.userName;
+            state.customerName = action.payload.userName;
             state.priceCategory = action.payload.priceCategory;
             // state.userName = action.payload?.userName;
             // state.priceCategory = action.payload?.priceCategory;
